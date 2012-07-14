@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Invoices Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script	src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+<style type="text/css">
+th,td {
+	border: 1px solid gray;
+	padding: 6px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+	<div data-role="page" data-theme="b">
+
+		<!-- /header -->
+		<div data-role="header">
+			<h1>Invoices Demo</h1>
+		</div>
+
+		<!-- /content -->
+		<div data-role="content">
+			<a href="#" data-role="button" data-icon="grid" data-mini="true" id="btnGo">Get Invoices</a>
+			<span id="divClear">
+				<a href="#" data-role="button"  data-icon="delete" data-mini="true" id="btnClear">Clear Result</a>
+			</span>
+			<div>
+				<div id="elmResult">&nbsp;</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+<script>
+$(document).ready(function() {
+	
+	$(document).bind("mobileinit", function(){
+		  //apply overrides here
+	});
+	
+	$("#divClear").hide();
+
+	$("#btnGo").click(function() {
+
+		$("#elmResult").load("cdproxy");
+		$("#divClear").show();
+
+	});
+
+	$("#btnClear").click(function() {
+
+		$("#elmResult").html("");
+		$("#divClear").hide();
+
+	});
+
+});
+</script>
+</html>
